@@ -378,6 +378,8 @@ int dwc3_send_gadget_generic_command(struct dwc3 *dwc, int cmd, u32 param)
 			if (DWC3_DGCMD_STATUS(reg))
 				return -EINVAL;
 			ret = 0;
+			if (DWC3_DGCMD_STATUS(reg))
+				ret = -EINVAL;
 			break;
 		}
 
